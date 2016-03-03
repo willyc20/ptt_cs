@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <table class="table table-hover">
+    <% @data.each do |t| %>
+      <tr>
+      <td>
+        <a href="<%= t.href %>" target="_blank"><%= t.title %></a>
+      </td>
+      <td>
+        <a href="/data/change?id=<%=t.id%>&state=0">未讀</a>
+      </td>
+      <td>
+        <a href="/data/change?id=<%=t.id%>&state=1">已讀</a>
+      </td>
+      <td>
+        <a href="/data/change?id=<%=t.id%>&state=2">待讀清單</a>
+      </td>
+      <td>
+        <a href="/data/change?id=<%=t.id%>&state=3">收藏</a>
+      </td>
+      <td>
+        <a href="/data/change?id=<%=t.id%>&state=-1">回收桶</a>
+      </td>
+      <td>
+        <%= t.author %>
+      </td>
+      <td>
+        <%= t.create %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+<%= will_paginate @datum, renderer: BootstrapPagination::Rails %>
